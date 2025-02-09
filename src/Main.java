@@ -52,7 +52,16 @@ public class Main {
 
         while (start) {
             printBoard(board);
-
+           /* for (int i=0;i<8;i++){
+                for(int j=0;j<8;j++){
+                    if(i+j%2==0){
+                       board[i][j]="   ";
+                    }
+                    else{
+                        board[i][j]="##";
+                    }
+                }
+            }*/
             playChess(board);
         }
     }
@@ -132,6 +141,8 @@ public class Main {
             default:
                 System.out.println("Invalid column!");
                 return;
+
+
         }
 
         // Move the piece
@@ -139,6 +150,12 @@ public class Main {
         board[row][columnIndex] = "     ";  // Empty the original square
 
         // Print the updated board
+        if(row+columnIndex%2==0){
+            board[row][columnIndex]="  ";;
+        }else {
+            board[row][columnIndex]="##";;
+        }
+
         System.out.println("Would you like to continue? Press any key to continue or -1 to quit.");
         int exitCheck = scan.nextInt();
         if (exitCheck == -1) {
